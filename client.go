@@ -649,10 +649,10 @@ func (c *Client) Do(req *Request) (*http.Response, error) {
 			}
 		}
 		select {
-		case <-req.Context().Done():
-			fmt.Printf("somebody said we were DONE\n")//???
-			c.HTTPClient.CloseIdleConnections()
-			return nil, req.Context().Err()
+		// ???case <-req.Context().Done():
+		// ???	fmt.Printf("somebody said we were DONE\n")//???
+		// ???	c.HTTPClient.CloseIdleConnections()
+		// ???	return nil, req.Context().Err()
 		case <-time.After(wait):
 			fmt.Printf("wait is OVER\n")//???
 		}
